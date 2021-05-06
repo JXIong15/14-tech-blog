@@ -1,0 +1,22 @@
+[
+    {
+        "title": "to-do",
+        "body": "Finish laundry, buy groceries, go to the gym",
+        "user_id": 1
+    },
+    {
+        "title": "Elephants",
+        "body": "Elephants remember everything. They are pregnant for 2 years.",
+        "user_id": 2
+    },
+    {
+        "title": "Pokemon",
+        "body": "I am an OG Pokemon lover. I remember when it was all just fun and games. Now it's about money, and scalpers are taking the fun away from everyone.",
+        "user_id": 1
+    },
+    {
+        "title": "Stocks",
+        "body": "Have you seen Doge Coin lately? I remember laughing about it 4 years ago when it was a fraction of a cent. Well, look who's laughing now... Doge Coin...",
+        "user_id": 3
+    }
+]

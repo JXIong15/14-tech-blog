@@ -1,0 +1,27 @@
+[
+    {
+        "body": "I agree.",
+        "post_id": 3,
+        "user_id": 3
+    },
+    {
+        "body": "I think you didn't mean to post this.",
+        "post_id": 1,
+        "user_id": 2
+    },
+    {
+        "body": "I finished folding my laundry.",
+        "post_id": 1,
+        "user_id": 1
+    },
+    {
+        "body": "I don't like elephants.",
+        "post_id": 2,
+        "user_id": 1
+    },
+    {
+        "body": "Doge is the new Bitcoin! WOOHOO!!!!",
+        "post_id": 4,
+        "user_id": 3
+    }
+]
