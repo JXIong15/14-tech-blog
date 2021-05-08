@@ -1,5 +1,6 @@
 const { Sequelize, Model, DataTypes, INTEGER } = require("sequelize");
 const sequelize = require("../config/connection");
+
 class Comment extends Model{}
 
 Comment.init({
@@ -30,7 +31,8 @@ Comment.init({
 },
     {
         sequelize,
-        timestamps: true
+        timestamps: true,
+        modelName: 'comment',
     }
 )
 
