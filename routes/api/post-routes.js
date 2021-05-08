@@ -4,7 +4,7 @@ const sequelize = require("../../config/connection")
 
 router.get('/', (req, res) => {
     Post.findAll({
-      include: [Post],
+      include: [User, Comment],
     })
     .then((posts) => res.json(posts))
     .catch((err) => res.status(500).json(err))
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     Post.findByPk(req.params.id, {
-        include: [Post],
+        include: [User, Comment],
     })
     .then((posts) => {
       if (!req.params.id) {

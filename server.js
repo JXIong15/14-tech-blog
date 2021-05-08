@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const path = require("path");
-const routes = require('./controllers');
+const routes = require('./routes');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
