@@ -9,7 +9,7 @@ Post.init({
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
-      },
+    },
     title: DataTypes.STRING,
     body: DataTypes.STRING,
     user_id: {
