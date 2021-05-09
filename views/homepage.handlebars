@@ -1,7 +1,10 @@
 <h1>homepage</h1>
-<h2>have logged in user show name and post</h2>
 <ul>
     {{#each posts}}
-        <li>{{title}} By: {{user.username}}</li>
+        <li>
+            {{title}} By: {{user.username}} at {{format_date created_at}}
+            <h2 style="font-size: 12px">Updated: {{format_date updated_at}}</h2>
+            <p>{{body}}</p>
+        </li>
     {{/each}}
 </ul>
