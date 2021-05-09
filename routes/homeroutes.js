@@ -1,15 +1,11 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
+const sequelize = require("../config/connection");
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Post.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
+      include: [User],
     })
     .then((postData) => {
         // Serialize data so the template can read it
@@ -28,6 +24,10 @@ router.get('/post/:id', withAuth, async (req, res) => {
         {
           model: User,
           attributes: ['name'],
+          include: [{
+              model: Comment,
+              include: [User],
+          }],
         },
       ],
     })
@@ -42,30 +42,31 @@ router.get('/post/:id', withAuth, async (req, res) => {
     .catch((err) => {res.status(500).json(err)});
 });
 
-// // Use withAuth middleware to prevent access to route
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Project }],
-//     });
-
-//     const user = userData.get({ plain: true });
-
-//     res.render('profile', {
-//       ...user,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// Use withAuth middleware to prevent access to route
+router.get('/user/:id', withAuth, async (req, res) => {
+    User.findByPk(req.params.id, {
+        include: [
+          {
+            model: Post,
+            include: [Comment],
+          },
+        ],
+      })
+      .then((userData) => {
+          const user = userData.get({ plain: true });
+  
+          res.render('user', {
+            ...user,
+            logged_in: req.session.logged_in
+          });
+      })
+      .catch((err) => {res.status(500).json(err)});
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
+  if (req.session.loggedIn) {
+    res.redirect('/');
     return;
   }
 

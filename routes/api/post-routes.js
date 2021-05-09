@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     .catch((err) => res.status(500).json(err))
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Post.findByPk(req.params.id, {
         include: [User, Comment],
     })
@@ -55,7 +55,6 @@ router.delete('/:id', withAuth, (req, res) => {
   Post.destroy({
     where: {
       id: req.params.id,
-      user_id: req.session.user_id,
     },
   })
   .then((posts) => {
