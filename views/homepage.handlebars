@@ -2,7 +2,7 @@
 <ul>
     {{#each posts}}
         <li>
-            {{title}} By: {{user.username}} at {{format_date created_at}}
+            <a href="api/post/{{id}}">{{title}}</a> By: <a href="api/user/{{id}}">{{user.username}}</a> at {{format_date created_at}}
             <h2 style="font-size: 12px">Updated: {{format_date updated_at}}</h2>
             <p>{{body}}</p>
         </li>

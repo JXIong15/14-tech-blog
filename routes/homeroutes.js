@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -22,30 +22,25 @@ router.get('/', (req, res) => {
 });
 
 
+router.get('/post/:id', withAuth, async (req, res) => {
+  Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    })
+    .then((postData) => {
+        const posts = postData.get({ plain: true });
 
-
-
-// router.get('/project/:id', async (req, res) => {
-//   try {
-//     const projectData = await Project.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-
-//     const project = projectData.get({ plain: true });
-
-//     res.render('project', {
-//       ...project,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+        res.render('post', {
+          ...post,
+          logged_in: req.session.logged_in
+        });
+    })
+    .catch((err) => {res.status(500).json(err)});
+});
 
 // // Use withAuth middleware to prevent access to route
 // router.get('/profile', withAuth, async (req, res) => {
