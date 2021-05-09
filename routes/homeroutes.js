@@ -20,22 +20,13 @@ router.get('/', (req, res) => {
 
 router.get('/post/:id', withAuth, async (req, res) => {
   Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-          include: [{
-              model: Comment,
-              include: [User],
-          }],
-        },
-      ],
+      include: [User, Comment],
     })
     .then((postData) => {
         const posts = postData.get({ plain: true });
 
         res.render('post', {
-          ...post,
+          posts,
           logged_in: req.session.logged_in
         });
     })
@@ -72,5 +63,15 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/signup', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('signup');
+  });
 
 module.exports = router;
