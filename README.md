@@ -81,6 +81,8 @@ npm run seed
     * Would need a profile page for this
 * figure out how to have the title and date on the same line
 * add notification option, so users can see new comments on their posts and posts they've commented on
+* add number of comments to the home page posts
+* add user github and social media, which they can edit in their profile
 
 
 ## Sources

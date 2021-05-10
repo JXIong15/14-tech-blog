@@ -6,17 +6,18 @@
     {{#each posts}}
         <li style="border-radius:10px; border:solid; border-color:rgb(116, 116, 116); margin:10px; list-style-type:none;">
             <div style="background-color:rgb(116, 116, 116); color:rgb(219, 221, 219); padding:10px">
-            <a href="/dashboard/edit/{{posts.id}}"><button class="btn btn-light" type="submit">Edit</button></a>
+            <a href="/dashboard/edit/{{posts.id}}"><button class="btn btn-light" type="submit" style="margin-right:10px">Edit</button></a>
             <a href="api/post/{{id}}" style="color: rgb(219, 221, 219); font-weight:bold; font-size:x-large"> {{title}}</a>
-                <span class="d-flex justify-content-end"style="font-size:smaller">
-                    {{format_date created_at}}
-                </span>
+
+            <div class="d-flex flex-column align-items-end">
+                <a href="/dashboard/delete/{{posts.id}}"><button class="btn btn-danger" type="submit">Delete</button></a>  
+                <span style="font-size:smaller">{{format_date created_at}}</span>
+            </div>
             </div>
         </li>
     {{/each}}
     {{else}}
         <h5 style="color:rgb(37, 1, 1);">You do not have any posts.</h5>
-    
     {{/if}}
 </ul>
 </div>
