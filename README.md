@@ -89,7 +89,7 @@ npm run seed
 * NPM Packages: https://www.npmjs.com/
 * MySql Workbench: https://www.mysql.com/products/workbench/
 * MySql Server: https://dev.mysql.com/downloads/mysql/
-* Heroku: 
+* Heroku: https://heroku.com
 * Insomnia: https://insomnia.rest/download
 
 

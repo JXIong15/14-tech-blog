@@ -6,6 +6,8 @@ router.post('/', (req, res) => {
   .then((user) => {
     req.session.save(() => {
         req.session.user_id = user.id;
+        req.session.username = user.username;
+        req.session.password - user.password;
         req.session.logged_in = true;
     
         res.status(200).json(user)
