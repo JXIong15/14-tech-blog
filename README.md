@@ -5,10 +5,10 @@
 * need Sign Up to save to the DB
 * get comments to post when the button is clicked
 * get comments per post to display
-* spaces between username
+* spaces between username on homepage
 * dates to display
 * edit/delete posts
-* need logout to display when logged in
+* need logout to display when logged in (mainly on homepage)
 
 
 ## Table of Contents
