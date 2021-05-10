@@ -36,10 +36,8 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-console.log("works");
       document.location.replace('/dashboard');
     } else {
-console.log("err");
       alert(response.statusText);
     }
   }

@@ -1,0 +1,7 @@
+{{#each this}}
+      <li style="border:solid; border-color:rgb(37, 1, 1); margin:10px; list-style-type:none;">
+        <div style="background-color:rgb(37, 1, 1); color:rgb(219, 221, 219); padding:10px"></div>
+        <p style="color:rgb(37, 1, 1); padding:10px; margin-bottom:0">{{body}}</p>
+        <p style="color:rgb(37, 1, 1); padding:10px; margin-bottom:0">-{{user.username}}, {{format_date createdAt}}</p>
+      </li>
+{{/each}}

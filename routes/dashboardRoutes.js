@@ -3,20 +3,18 @@ const { Post, User, Comment } = require('../models');
 const sequelize = require("../config/connection");
 const withAuth = require('../utils/auth');
 
+// displays posts made by the user
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
+      include: [User,
         {
           model: Comment,
+          include: [User],
         }
       ],
-    //   where: {
-    //       user_id: req.session.user_id,
-    //   }
+      where: {
+          user_id: req.session.user_id,
+      }
     })
     .then((postData) => {
         // Serialize data so the template can read it

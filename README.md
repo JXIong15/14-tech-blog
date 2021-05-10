@@ -2,15 +2,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## To-Do
-* get sign up/login to work
-    * need Sign Up to save to the DB
+* need Sign Up to save to the DB
 * get comments to post when the button is clicked
 * get comments per post to display
-* display posts for specific user in the dashboard
 * spaces between username
 * dates to display
 * edit/delete posts
-* get logout to work
+* need logout to display when logged in
 
 
 ## Table of Contents

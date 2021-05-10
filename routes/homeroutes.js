@@ -29,18 +29,22 @@ router.get('/api/post/:id', withAuth, async (req, res) => {
       }],
     })
     .then((postData) => {
+        if (!postData) {
+            res.status(404).json({ message: 'No post found with that id' });
+            return;
+        }
         const posts = postData.get({ plain: true });
 
         res.render('post', {
           posts,
-          logged_in: req.session.logged_in
+          loggedIn: true
         });
     })
     .catch((err) => {res.status(500).json(err)});
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/user/:id', withAuth, async (req, res) => {
+router.get('/api/user/:id', withAuth, async (req, res) => {
     User.findByPk(req.params.id, {
         include: [
           {
@@ -53,8 +57,8 @@ router.get('/user/:id', withAuth, async (req, res) => {
           const user = userData.get({ plain: true });
   
           res.render('user', {
-            ...user,
-            logged_in: req.session.logged_in
+            user,
+            loggedIn: req.session.loggedIn
           });
       })
       .catch((err) => {res.status(500).json(err)});
