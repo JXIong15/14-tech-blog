@@ -18,9 +18,15 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/api/post/:id', withAuth, async (req, res) => {
   Post.findByPk(req.params.id, {
-      include: [User, Comment],
+      include: [User, {
+          model: Comment,
+          include: [User],
+          where: {
+              post_id: req.params.id,
+          }
+      }],
     })
     .then((postData) => {
         const posts = postData.get({ plain: true });

@@ -1,4 +1,26 @@
-<h1>Post</h1>
-<h2>{{posts.title}}</h2>
-<h5>Post By: {{user.username}} at {{format_date post.created_at}}</h5>
-<p>{{posts.body}}</p>
+<div style="margin:20px; border:solid; border-color:rgb(37, 1, 1);">
+<h1 style="padding:10px; background-color:rgb(37, 1, 1); color:rgb(190, 212, 190)">{{posts.title}}
+    <span class="d-flex justify-content-end" style="font-size:20px; color:rgb(219, 221, 219)">
+        Posted By: {{posts.user.username}} at {{format_date post.created_at}}
+    </span>
+</h1>
+<p style="padding: 10px; margin-bottom:10px">{{posts.body}}</p>
+</div>
+
+<h2>comments: {{comments}}</h2>
+
+<div class="row" style="margin:20px; border:solid; border-color: border-color:rgb(37, 1, 1);">
+  <div class="col-12" style="padding:0">
+    <h2 style="background-color: rgb(37, 1, 1); color:rgb(190, 212, 190); padding:20px;"></h2>
+
+    <form class="form" style="padding:10px; padding-top:0">
+        <div class="form-group">
+        <label for="commenting">Comment:</label>
+        <textarea class="form-group" style="height:150px" id="commenting"></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-dark" type="submit" style="width:100%">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
