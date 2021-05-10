@@ -3,13 +3,13 @@
 
 ## To-Do
 * need Sign Up to save to the DB
-* get comments to post when the button is clicked
-* get comments per post to display
+* get comments/posts to post when the button is clicked
 * spaces between username on homepage
 * dates to display
-* edit/delete posts
+* edit/delete posts/comments
 * need logout to display when logged in (mainly on homepage)
 * get to work on Heroku
+* if time allows: make user-page
 
 
 ## Table of Contents
