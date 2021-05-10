@@ -1,8 +1,9 @@
 <div style="margin:20px; border:solid; border-color:rgb(37, 1, 1);">
-<h1 style="padding:10px; background-color:rgb(37, 1, 1); color:rgb(190, 212, 190)">Your Dashboard</h1>
+<h1 style="padding:10px; background-color:rgb(37, 1, 1); color:rgb(219, 221, 219)">Your Dashboard</h1>
 <ul style="margin:20px; padding:0">
     {{!-- NEED TO MAKE THIS THE POSTS FOR JUST THAT USER --}}
     {{#each posts}}
+    {{!-- {{#if (post.user_id === user.id)}} --}}
         <li style="border-radius:10px; border:solid; border-color:rgb(116, 116, 116); margin:10px; list-style-type:none;">
             <div style="background-color:rgb(116, 116, 116); color:rgb(219, 221, 219); padding:10px">
                 <a href="api/post/{{id}}" style="color: rgb(219, 221, 219); font-weight:bold; font-size:large">{{title}}</a>
@@ -11,6 +12,7 @@
                 </span>
             </div>
         </li>
+    {{!-- {{/if}} --}}
     {{/each}}
 </ul>
 </div>

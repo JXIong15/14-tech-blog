@@ -51,4 +51,57 @@ router.get('/create', withAuth, (req, res) => {
 .catch ((err) => {res.status(500).json(err)})
 });
 
+// DOES NOT WORK
+// edits existing post
+router.put('/edit/:id', withAuth, (req, res) => {
+  Post.findByPk({
+    where: {
+      id: req.params.id,
+        // user_id: req.session.user_id,
+    },
+    include: [User, {
+      model: Comment,
+      include: [User],
+    }]
+  })
+  .then((postData) => {
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with that id' });
+      return;
+    }
+      // Serialize data so the template can read it
+      const posts = postData.get({ plain: true });
+
+      // Pass serialized data and session flag into template
+      res.render('edit-post', {posts, loggedIn: true});
+  })
+.catch ((err) => {res.status(500).json(err)})
+});
+
+// deletes post - DOES NOT WORK
+router.put('/delete/:id', withAuth, (req, res) => {
+  Post.findByPk({
+    where: {
+      id: req.params.id,
+        // user_id: req.session.user_id,
+    },
+    include: [User, {
+      model: Comment,
+      include: [User],
+    }]
+  })
+  .then((postData) => {
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with that id' });
+      return;
+    }
+      // Serialize data so the template can read it
+      const posts = postData.get({ plain: true });
+
+      // Pass serialized data and session flag into template
+      res.render('edit-post', {posts, loggedIn: true});
+  })
+.catch ((err) => {res.status(500).json(err)})
+});
+
 module.exports = router;

@@ -5,9 +5,21 @@
     </span>
 </h1>
 <p style="padding: 10px; margin-bottom:10px">{{posts.body}}</p>
+{{!-- NEED IF STATEMENTS TO WORK --}}
+{{#if user.id===posts.user_id}}
+    <a href="/dashboard/edit/{{posts.id}}"><button class="btn btn-dark" type="submit">Edit</button></a>
+{{/if}}
 </div>
 
-<h2>comments: {{comments}}</h2>
+{{#if comments.post_id === posts.id}}
+  {{#each comments}}
+    <li style="border:solid; border-color:rgb(37, 1, 1); margin:10px; list-style-type:none;">
+      <div style="background-color:rgb(37, 1, 1); color:rgb(219, 221, 219); padding:10px"></div>
+      <p style="color:rgb(37, 1, 1); padding:10px; margin-bottom:0">{{body}}</p>
+      <p style="color:rgb(37, 1, 1); padding:10px; margin-bottom:0">-{{comments.user.username}}, {{format_date comments.createdAt}}</p>
+    </li>
+  {{/each}}
+{{/if}}
 
 <div class="row" style="margin:20px; border:solid; border-color: border-color:rgb(37, 1, 1);">
   <div class="col-12" style="padding:0">

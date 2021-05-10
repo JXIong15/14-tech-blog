@@ -16,8 +16,8 @@
     <nav style="color: rgb(190, 212, 190); margin-bottom:20px">
         <a href="/" style="color: rgb(190, 212, 190); padding:15px">Home</a>
         <a href="/dashboard" style="color: rgb(190, 212, 190); padding:15px">Dashboard</a>
-        {{#if loggedIn}}
-            <button id="logout" class="btn-no-style">Logout</button>
+        {{#if logged_in}}
+            <a href="/logout" style="color: rgb(190, 212, 190); padding:15px">Log Out</a>
         {{else}}
             <a href="/login" style="color: rgb(190, 212, 190); padding:15px">Login</a>
         {{/if}}
@@ -26,7 +26,7 @@
     </div>
     {{{body}}}
 
-    {{#if loggedIn}}
+    {{#if logged_in}}
         <script src="/js/logout.js"></script>
     {{/if}}
 </body>
