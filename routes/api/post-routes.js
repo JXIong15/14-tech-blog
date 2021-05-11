@@ -25,6 +25,7 @@ router.get('/:id', withAuth, (req, res) => {
     .catch ((err) => res.status(500).json(err))
   });
 
+  // creates a new post
 router.post('/', withAuth, (req, res) => {
   Post.create({
       title: req.body.title,

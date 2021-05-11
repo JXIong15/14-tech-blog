@@ -2,7 +2,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## To-Do
-* need Sign Up to save to the DB
 * get comments/posts to post when the button is clicked
 * spaces between username on homepage
 * dates to display
