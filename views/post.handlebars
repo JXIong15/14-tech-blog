@@ -1,20 +1,21 @@
 <div style="margin:20px; border:solid; border-color:rgb(37, 1, 1);">
-<h1 style="padding:10px; background-color:rgb(37, 1, 1); color:rgb(219, 221, 219)">{{posts.title}}
+  <h1 style="padding:10px; background-color:rgb(37, 1, 1); color:rgb(219, 221, 219)">{{posts.title}}
     <span class="d-flex justify-content-end" style="font-size:20px; color:rgb(219, 221, 219)">
-        Posted By: {{posts.user.username}} at {{format_date post.created_at}}
+      Posted By: {{posts.user.username}} at {{format_date post.createdAt}}
     </span>
-</h1>
-<p style="padding: 10px; margin-bottom:10px">{{posts.body}}</p>
+  </h1>
+  <p style="padding: 10px; margin-bottom:10px">{{posts.body}}</p>
 
-{{> comment posts.comments}}
+  {{> comment posts.comments}}
 </div>
 
+{{!-- comment form --}}
 <div class="row" style="margin:20px; border:solid; border-color: border-color:rgb(37, 1, 1);">
   <div class="col-12" style="padding:0">
     <h2 style="background-color: rgb(37, 1, 1); color:rgb(190, 212, 190); padding:20px;"></h2>
 
     <form class="form" id="comment-form" style="padding:10px; padding-top:0">
-        <div class="form-group">
+      <div class="form-group">
         <label for="commenting">Comment:</label>
         <input type="textarea" class="form-group" style="height:150px" id="commenting" />
       </div>
@@ -25,4 +26,4 @@
   </div>
 </div>
 
-<script src="./js/new-comment.js"></script>
+<script src="/js/new-comment.js"></script>

@@ -3,27 +3,6 @@ const { Post, User, Comment } = require('../../models');
 const sequelize = require("../../config/connection");
 const withAuth = require('../../utils/auth');
 
-router.get('/', (req, res) => {
-    Post.findAll({
-      include: [User, Comment],
-    })
-    .then((posts) => res.json(posts))
-    .catch((err) => res.status(500).json(err))
-});
-
-router.get('/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
-        include: [User, Comment],
-    })
-    .then((posts) => {
-      if (!req.params.id) {
-        res.status(404).json({ message: 'No post found with that id!' });
-        return;
-      }
-      res.json(posts)
-    })
-    .catch ((err) => res.status(500).json(err))
-  });
 
   // creates a new post
 router.post('/', withAuth, (req, res) => {

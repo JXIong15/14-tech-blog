@@ -3,14 +3,18 @@ const { Post, User, Comment } = require('../models');
 const sequelize = require("../config/connection");
 const withAuth = require('../utils/auth');
 
+// homepage, no login, shows all posts by everyone
+// Works
 router.get('/', (req, res) => {
     Post.findAll({
       include: [User],
     })
     .then((postData) => {
+        console.log(postData);
+
         // Serialize data so the template can read it
         const posts = postData.map((post) => post.get({ plain: true }));
-
+console.log(posts);
         // Pass serialized data and session flag into template
         res.render('homepage', {posts});
     })
@@ -18,14 +22,12 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/api/post/:id', withAuth, async (req, res) => {
+// WORKS
+router.get('/post/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
       include: [User, {
           model: Comment,
           include: [User],
-          where: {
-              post_id: req.params.id,
-          }
       }],
     })
     .then((postData) => {
@@ -44,25 +46,25 @@ router.get('/api/post/:id', withAuth, async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/api/user/:id', withAuth, async (req, res) => {
-    User.findByPk(req.params.id, {
-        include: [
-          {
-            model: Post,
-            include: [Comment],
-          },
-        ],
-      })
-      .then((userData) => {
-          const user = userData.get({ plain: true });
+// router.get('/user/:id', withAuth, async (req, res) => {
+//     User.findByPk(req.params.id, {
+//         include: [
+//           {
+//             model: Post,
+//             include: [Comment],
+//           },
+//         ],
+//       })
+//       .then((userData) => {
+//           const user = userData.get({ plain: true });
   
-          res.render('user', {
-            user,
-            loggedIn: req.session.loggedIn
-          });
-      })
-      .catch((err) => {res.status(500).json(err)});
-});
+//           res.render('user', {
+//             user,
+//             loggedIn: req.session.loggedIn
+//           });
+//       })
+//       .catch((err) => {res.status(500).json(err)});
+// });
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
