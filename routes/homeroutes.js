@@ -4,7 +4,6 @@ const sequelize = require("../config/connection");
 const withAuth = require('../utils/auth');
 
 // homepage, no login, shows all posts by everyone
-// Works
 router.get('/', (req, res) => {
     Post.findAll({
       include: [User],
@@ -45,6 +44,7 @@ router.get('/post/:id', withAuth, (req, res) => {
     .catch((err) => {res.status(500).json(err)});
 });
 
+// IF I HAVE TIME, MAKE A USER PROFILE
 // Use withAuth middleware to prevent access to route
 // router.get('/user/:id', withAuth, async (req, res) => {
 //     User.findByPk(req.params.id, {
