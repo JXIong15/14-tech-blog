@@ -1,21 +1,30 @@
-    <div class="row" style="margin:20px; border:solid; border-color: border-color:rgb(37, 1, 1);">
+<div class="row" style="margin:20px; border:solid; border-color: border-color:rgb(37, 1, 1);">
     <div class="col-12" style="padding:0">
-        <h2 style="background-color: rgb(37, 1, 1); color:rgb(190, 212, 190); padding:20px;">Edit Your Post</h2>
+        <div class="d-flex justify-content-between" style="background-color: rgb(37, 1, 1);">
+            <h2 style="color:rgb(190, 212, 190); padding:20px;">Edit Your Post</h2>
+            <button class="btn btn-danger del-post-btn" style="margin:15px;" type="submit">Delete Post</button>
+        </div>
+
         <form class="form login-form" style="padding:10px; padding-top:0">
             <div class="form-group">
-            <label for="title">Title:</label>
-            <input class="form-input" type="text" id="title" value="{{posts.title}}"/>
-        </div>
-        <form class="form" style="padding:10px; padding-top:0">
-            <div class="form-group">
-            <label for="content">Post Content:</label>
-            <input class="textarea" type="text" id="title" value="{{posts.content}}"/>
-        </div>
-        <p style="color:rgb(37, 1, 1)">Created by you on {{format_date post.createdAt}}</p>
-        <div class="form-group">
-            <a href="/dashboard/edit/{{posts.id}}"><button class="btn btn-dark" type="submit" style="width:100%">Edit Post</button></a>
-        </div>
-        </form>
+                <label for="title">Title:</label>
+                <input class="form-input" type="text" id="title" value="{{post.title}}" />
+            </div>
+            <form class="form" style="padding:10px; padding-top:0">
+                <div class="form-group">
+                    <label for="content">Post Content:</label>
+                    <input class="textarea" type="text" id="title" style="height:150px; width:100%"
+                        value="{{post.content}}" />
+                </div>
+                <p style="color:rgb(37, 1, 1)">Created by you on {{format_date post.createdAt}}</p>
+                <div class="form-group">
+                    <a href="/dashboard/edit/{{post.id}}"><button class="btn btn-dark" type="submit"
+                            style="width:100%">Edit Post</button></a>
+                </div>
+            </form>
     </div>
-         <a href="/dashboard/delete/{{posts.id}}"><button class="btn btn-primary" type="submit" style="width:100%">Delete Post</button></a>
-    </div>
+</div>
+
+
+<script src="../../js/delete-post.js"></script>
+<script src="../../js/edit-post.js"></script>

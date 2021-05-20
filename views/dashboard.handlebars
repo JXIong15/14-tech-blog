@@ -5,14 +5,13 @@
 {{#if posts.length}}
     {{#each posts}}
         <li style="border-radius:10px; border:solid; border-color:rgb(116, 116, 116); margin:10px; list-style-type:none;">
-            <div style="background-color:rgb(116, 116, 116); color:rgb(219, 221, 219); padding:10px">
-            <a href="/dashboard/edit/{{posts.id}}"><button class="btn btn-light" type="submit" style="margin-right:10px">Edit</button></a>
-            <a href="post/{{id}}" style="color: rgb(219, 221, 219); font-weight:bold; font-size:x-large"> {{title}}</a>
+            <div class="d-flex flex-row justify-content-between" style="background-color:rgb(116, 116, 116); color:rgb(219, 221, 219); padding:10px">
+                <a href="post/{{id}}" style="color: rgb(219, 221, 219); font-weight:bold; font-size:x-large"> {{title}}</a>
 
-            <div class="d-flex flex-column align-items-end">
-                <a href="/dashboard/delete/{{posts.id}}"><button class="btn btn-danger" type="submit">Delete</button></a>  
-                <span style="font-size:smaller">{{format_date created_at}}</span>
-            </div>
+                <div class="d-flex flex-column align-items-end">
+                    <a href="/dashboard/edit-post/{{id}}"><button class="btn btn-light" style="margin-right:10px">Edit</button></a>
+                    <span style="font-size:smaller">{{format_date created_at}}</span>
+                </div>
             </div>
         </li>
     {{/each}}
