@@ -15,6 +15,7 @@ router.post('/', withAuth, (req, res) => {
     .catch((err) => {res.status(500).json(err)})
 });
 
+// updates post
 router.put('/:id', withAuth, (req, res) => {
     Post.update(req.body, {
         where: {

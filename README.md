@@ -3,11 +3,7 @@
 
 ## To-Do
 * spaces between username on homepage
-* dates to display
-* edit/delete posts/comments
-* need logout to display when logged in (mainly on homepage)
 * get to work on Heroku
-* if time allows: make user-page
 
 
 ## Table of Contents

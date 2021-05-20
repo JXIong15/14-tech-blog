@@ -4,7 +4,7 @@ const sequelize = require("../config/connection");
 const withAuth = require('../utils/auth');
 
 // homepage, no login, shows all posts by everyone
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
       include: [User],
     })
@@ -13,9 +13,11 @@ router.get('/', (req, res) => {
 
         // Serialize data so the template can read it
         const posts = postData.map((post) => post.get({ plain: true }));
-console.log(posts);
+
         // Pass serialized data and session flag into template
-        res.render('homepage', {posts});
+        res.render('homepage', {
+          posts,
+          loggedIn: true});
     })
   .catch ((err) => {res.status(500).json(err)})
 });
