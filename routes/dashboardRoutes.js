@@ -51,7 +51,7 @@ router.get('/create', withAuth, (req, res) => {
 
 // DOES NOT WORK
 // edits existing post
-router.put('/edit/:id', withAuth, (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   Post.findByPk({
     where: {
       id: req.params.id,

@@ -1,9 +1,9 @@
 async function newPost(event) {
     event.preventDefault();
-  
+
     const title = document.querySelector('#title').value;
     const body = document.querySelector('#content').value;
-  
+
     if (title && body) {
       const response = await fetch('/api/post', {
         method: 'POST',
@@ -21,6 +21,6 @@ async function newPost(event) {
   
   
   document
-    .querySelector('.post-form')
+    .querySelector('#post-form')
     .addEventListener('submit', newPost);
   

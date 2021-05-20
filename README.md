@@ -32,7 +32,7 @@
 ## Functionality
 * When the program is initiated, the home page is deployed, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
 * When I click on the navigation links, then I am prompted to either sign up or sign in
-* WHEN I choose to sign up, then I am prompted to create a username and password that is then saved into the database. I am then logged into the site. (`DOES NOT WORK YET`)
+* WHEN I choose to sign up, then I am prompted to create a username and password that is then saved into the database. I am then taken to the login page.
 * WHEN I revisit the site at a later time and choose to sign in, then I am prompted to enter my username and password
 * Once signed in, the user can see the normal navigation links, and they have the option to log out
 * WHEN I click on the homepage option in the navigation, THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
