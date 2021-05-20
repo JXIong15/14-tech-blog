@@ -13,13 +13,12 @@
             <form class="form" style="padding:10px; padding-top:0">
                 <div class="form-group">
                     <label for="content">Post Content:</label>
-                    <input class="textarea" type="text" id="title" style="height:150px; width:100%"
-                        value="{{post.content}}" />
+                    <input class="textarea" type="text" id="content" style="height:150px; width:100%"
+                        value="{{post.body}}" />
                 </div>
                 <p style="color:rgb(37, 1, 1)">Created by you on {{format_date post.createdAt}}</p>
                 <div class="form-group">
-                    <a href="/dashboard/edit/{{post.id}}"><button class="btn btn-dark" type="submit"
-                            style="width:100%">Edit Post</button></a>
+                    <button class="btn btn-dark edit-post-btn" style="width:100%">Edit Post</button>
                 </div>
             </form>
     </div>
