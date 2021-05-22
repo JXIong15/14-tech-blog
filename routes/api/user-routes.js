@@ -1,17 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/:id', (req, res) => {
-  User.findByPk(req.params.id)
-  .then((user) => {
-    if (!req.params.id) {
-      res.status(404).json({ message: 'No user found with that id!' });
-      return;
-    }
-    res.json(user)
-  })
-})
-
 router.post('/', (req, res) => {
   User.create(req.body)
   .then((user) => {
