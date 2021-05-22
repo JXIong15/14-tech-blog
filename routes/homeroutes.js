@@ -23,7 +23,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 
-// WORKS
+// displays post and its comments
 router.get('/post/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
       include: [User, {
@@ -45,28 +45,6 @@ router.get('/post/:id', withAuth, (req, res) => {
     })
     .catch((err) => {res.status(500).json(err)});
 });
-
-// IF I HAVE TIME, MAKE A USER PROFILE
-// Use withAuth middleware to prevent access to route
-// router.get('/user/:id', withAuth, async (req, res) => {
-//     User.findByPk(req.params.id, {
-//         include: [
-//           {
-//             model: Post,
-//             include: [Comment],
-//           },
-//         ],
-//       })
-//       .then((userData) => {
-//           const user = userData.get({ plain: true });
-  
-//           res.render('user', {
-//             user,
-//             loggedIn: req.session.loggedIn
-//           });
-//       })
-//       .catch((err) => {res.status(500).json(err)});
-// });
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
