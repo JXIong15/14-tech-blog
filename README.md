@@ -17,7 +17,7 @@
  ## Introduction
  Uses MySql, Routes, and Handlebars to create an app allowing users to view, edit, and make blog posts. Users can also create accounts and track their blog posts through there.
  * GitHub Repository: https://github.com/JXIong15/14-tech-blog
- * Heroku Live App: https://tech-blog-jx.herokuapp.com/
+ * Heroku Live App: https://infinite-everglades-93131.herokuapp.com/
 <p align="center"><img src="./assets/home.png" width="80%" stylealt="home page with a few blog posts"/></p>
 
 
