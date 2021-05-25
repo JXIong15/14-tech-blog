@@ -3,7 +3,7 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // homepage, no login, shows all posts by everyone
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Post.findAll({
       include: [User],
     })
@@ -15,8 +15,7 @@ router.get('/', withAuth, (req, res) => {
 
         // Pass serialized data and session flag into template
         res.render('homepage', {
-          posts,
-          loggedIn: true});
+          posts});
     })
   .catch ((err) => {res.status(500).json(err)})
 });
