@@ -8,7 +8,7 @@
 * [Tasks Completed](#tasks-completed)
 * [Technologies Used](#technologies-used)
 * [Installations](#installations)
-* [Demos](#demos)
+* [Demo](#demo)
 * [Future Ideas](#future-ideas)
 * [Sources](#sources)
 * [License](#license)
@@ -78,7 +78,7 @@ npm run seed
 * Heroku
 
 
-## Demos
+## Demo
 * App Demo:
    <p align="center"><img src="./assets/demo.gif" width="100% height="100%" stylealt="app demo"/></p>
 
